@@ -1,0 +1,46 @@
+---
+title: Bar Plot
+author: Madison Victor
+date: '2017-12-12'
+slug: bar-plot
+categories:
+  - R
+  - Plots
+tags: []
+---
+
+
+
+<pre class="r"><code>library(Lahman)</code></pre>
+<pre><code>## Warning: package &#39;Lahman&#39; was built under R version 3.4.3</code></pre>
+<pre class="r"><code>library(sqldf)</code></pre>
+<pre><code>## Warning: package &#39;sqldf&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Loading required package: gsubfn</code></pre>
+<pre><code>## Warning: package &#39;gsubfn&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Loading required package: proto</code></pre>
+<pre><code>## Warning: package &#39;proto&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Loading required package: RSQLite</code></pre>
+<pre class="r"><code>library(ggplot2)</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.4.3</code></pre>
+<pre class="r"><code>query&lt;-&quot;SELECT name,HR 
+FROM Teams 
+WHERE yearID=1980 
+ORDER BY HR &quot;
+result&lt;-sqldf(query)
+
+
+result$name&lt;-factor(result$name,levels=result$name)
+
+ggplot()+
+  geom_bar(data=result,aes(x=name,y=HR),stat=&#39;identity&#39;)+
+  coord_flip()+
+  ggtitle(&quot;1980 Team Homerun Totals&quot;)+
+  xlab(&quot;Team Name&quot;)+
+  ylab(&quot;Homeruns&quot;)</code></pre>
+<p><img src="/post/2017-12-12-bar-plot_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>ggplot()+
+  geom_bar(data=result,aes(x=name,y=HR),stat=&#39;identity&#39;)+
+  ggtitle(&quot;1980 Team Homerun Totals&quot;)+
+  xlab(&quot;Team Name&quot;)+
+  ylab(&quot;Homeruns&quot;)</code></pre>
+<p><img src="/post/2017-12-12-bar-plot_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>

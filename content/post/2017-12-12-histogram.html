@@ -1,0 +1,41 @@
+---
+title: Histogram
+author: Madison Victor
+date: '2017-12-12'
+slug: histogram
+categories:
+  - R
+  - Plots
+tags:
+  - Histogram
+---
+
+
+
+<pre class="r"><code>library(Lahman)</code></pre>
+<pre><code>## Warning: package &#39;Lahman&#39; was built under R version 3.4.3</code></pre>
+<pre class="r"><code>library(sqldf)</code></pre>
+<pre><code>## Warning: package &#39;sqldf&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Loading required package: gsubfn</code></pre>
+<pre><code>## Warning: package &#39;gsubfn&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Loading required package: proto</code></pre>
+<pre><code>## Warning: package &#39;proto&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Loading required package: RSQLite</code></pre>
+<pre class="r"><code>library(ggplot2)</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.4.3</code></pre>
+<pre class="r"><code>#extracting the data-------
+
+query&lt;-&quot;SELECT weight
+FROM Master&quot;
+
+result&lt;-sqldf(query)
+
+
+
+#visualize the data-------
+
+ggplot()+
+  geom_histogram(data=result,aes(x=weight),color=&quot;blue&quot;,fill=&quot;orange&quot;,bins=50)+
+  ggtitle(&quot;Body-weight Distribution for Baseball Players&quot;)</code></pre>
+<pre><code>## Warning: Removed 854 rows containing non-finite values (stat_bin).</code></pre>
+<p><img src="/post/2017-12-12-histogram_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>

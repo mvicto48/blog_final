@@ -1,0 +1,30 @@
+---
+title: Time Series
+author: Madison Victor
+date: '2017-12-12'
+slug: time-series
+categories:
+  - R
+  - Plots
+tags: []
+---
+
+```{r}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+
+query<-"SELECT yearID, HR
+FROM Batting
+WHERE playerID='ruthba01'"
+
+result<-sqldf(query)
+
+ggplot()+
+  geom_point(data=result,aes(x=yearID, y=HR))+
+  geom_line(data=result,aes(x=yearID, y=HR))+
+  ggtitle("Ruth's Homerun Totals Throughout the Year's")+
+  xlab("year")+
+  ylab("homeruns")
+```
+

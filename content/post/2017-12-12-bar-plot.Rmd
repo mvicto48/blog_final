@@ -1,0 +1,40 @@
+---
+title: Bar Plot
+author: Madison Victor
+date: '2017-12-12'
+slug: bar-plot
+categories:
+  - R
+  - Plots
+tags: []
+---
+
+```{r}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+
+query<-"SELECT name,HR 
+FROM Teams 
+WHERE yearID=1980 
+ORDER BY HR "
+result<-sqldf(query)
+
+
+result$name<-factor(result$name,levels=result$name)
+
+ggplot()+
+  geom_bar(data=result,aes(x=name,y=HR),stat='identity')+
+  coord_flip()+
+  ggtitle("1980 Team Homerun Totals")+
+  xlab("Team Name")+
+  ylab("Homeruns")
+
+ggplot()+
+  geom_bar(data=result,aes(x=name,y=HR),stat='identity')+
+  ggtitle("1980 Team Homerun Totals")+
+  xlab("Team Name")+
+  ylab("Homeruns")
+
+```
+

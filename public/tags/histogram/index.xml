@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Histogram on Madison&#39;s Blog</title>
+    <link>/tags/histogram/</link>
+    <description>Recent content in Histogram on Madison&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 12 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/histogram/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Histogram</title>
+      <link>/post/histogram/</link>
+      <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/histogram/</guid>
+      <description>library(Lahman)## Warning: package &amp;#39;Lahman&amp;#39; was built under R version 3.4.3library(sqldf)## Warning: package &amp;#39;sqldf&amp;#39; was built under R version 3.4.3## Loading required package: gsubfn## Warning: package &amp;#39;gsubfn&amp;#39; was built under R version 3.4.3## Loading required package: proto## Warning: package &amp;#39;proto&amp;#39; was built under R version 3.4.3## Loading required package: RSQLitelibrary(ggplot2)## Warning: package &amp;#39;ggplot2&amp;#39; was built under R version 3.4.3#extracting the data-------query&amp;lt;-&amp;quot;SELECT weightFROM Master&amp;quot;result&amp;lt;-sqldf(query)#visualize the data-------ggplot()+geom_histogram(data=result,aes(x=weight),color=&amp;quot;blue&amp;quot;,fill=&amp;quot;orange&amp;quot;,bins=50)+ggtitle(&amp;quot;Body-weight Distribution for Baseball Players&amp;quot;)## Warning: Removed 854 rows containing non-finite values (stat_bin).</description>
+    </item>
+    
+  </channel>
+</rss>

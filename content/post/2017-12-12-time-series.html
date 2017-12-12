@@ -1,0 +1,37 @@
+---
+title: Time Series
+author: Madison Victor
+date: '2017-12-12'
+slug: time-series
+categories:
+  - R
+  - Plots
+tags: []
+---
+
+
+
+<pre class="r"><code>library(Lahman)</code></pre>
+<pre><code>## Warning: package &#39;Lahman&#39; was built under R version 3.4.3</code></pre>
+<pre class="r"><code>library(sqldf)</code></pre>
+<pre><code>## Warning: package &#39;sqldf&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Loading required package: gsubfn</code></pre>
+<pre><code>## Warning: package &#39;gsubfn&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Loading required package: proto</code></pre>
+<pre><code>## Warning: package &#39;proto&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Loading required package: RSQLite</code></pre>
+<pre class="r"><code>library(ggplot2)</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.4.3</code></pre>
+<pre class="r"><code>query&lt;-&quot;SELECT yearID, HR
+FROM Batting
+WHERE playerID=&#39;ruthba01&#39;&quot;
+
+result&lt;-sqldf(query)
+
+ggplot()+
+  geom_point(data=result,aes(x=yearID, y=HR))+
+  geom_line(data=result,aes(x=yearID, y=HR))+
+  ggtitle(&quot;Ruth&#39;s Homerun Totals Throughout the Year&#39;s&quot;)+
+  xlab(&quot;year&quot;)+
+  ylab(&quot;homeruns&quot;)</code></pre>
+<p><img src="/post/2017-12-12-time-series_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>

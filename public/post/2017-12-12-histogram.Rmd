@@ -1,0 +1,35 @@
+---
+title: Histogram
+author: Madison Victor
+date: '2017-12-12'
+slug: histogram
+categories:
+  - R
+  - Plots
+tags:
+  - Histogram
+---
+
+```{r}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+
+
+
+#extracting the data-------
+
+query<-"SELECT weight
+FROM Master"
+
+result<-sqldf(query)
+
+
+
+#visualize the data-------
+
+ggplot()+
+  geom_histogram(data=result,aes(x=weight),color="blue",fill="orange",bins=50)+
+  ggtitle("Body-weight Distribution for Baseball Players")
+```
+

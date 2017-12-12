@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Plots on Madison&#39;s Blog</title>
+    <link>/categories/plots/</link>
+    <description>Recent content in Plots on Madison&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 12 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/plots/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bar Plot</title>
+      <link>/post/bar-plot/</link>
+      <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/bar-plot/</guid>
+      <description>library(Lahman)## Warning: package &amp;#39;Lahman&amp;#39; was built under R version 3.4.3library(sqldf)## Warning: package &amp;#39;sqldf&amp;#39; was built under R version 3.4.3## Loading required package: gsubfn## Warning: package &amp;#39;gsubfn&amp;#39; was built under R version 3.4.3## Loading required package: proto## Warning: package &amp;#39;proto&amp;#39; was built under R version 3.4.3## Loading required package: RSQLitelibrary(ggplot2)## Warning: package &amp;#39;ggplot2&amp;#39; was built under R version 3.4.3query&amp;lt;-&amp;quot;SELECT name,HR FROM Teams WHERE yearID=1980 ORDER BY HR &amp;quot;result&amp;lt;-sqldf(query)result$name&amp;lt;-factor(result$name,levels=result$name)ggplot()+geom_bar(data=result,aes(x=name,y=HR),stat=&amp;#39;identity&amp;#39;)+coord_flip()+ggtitle(&amp;quot;1980 Team Homerun Totals&amp;quot;)+xlab(&amp;quot;Team Name&amp;quot;)+ylab(&amp;quot;Homeruns&amp;quot;)ggplot()+geom_bar(data=result,aes(x=name,y=HR),stat=&amp;#39;identity&amp;#39;)+ggtitle(&amp;quot;1980 Team Homerun Totals&amp;quot;)+xlab(&amp;quot;Team Name&amp;quot;)+ylab(&amp;quot;Homeruns&amp;quot;)</description>
+    </item>
+    
+    <item>
+      <title>Histogram</title>
+      <link>/post/histogram/</link>
+      <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/histogram/</guid>
+      <description>library(Lahman)## Warning: package &amp;#39;Lahman&amp;#39; was built under R version 3.4.3library(sqldf)## Warning: package &amp;#39;sqldf&amp;#39; was built under R version 3.4.3## Loading required package: gsubfn## Warning: package &amp;#39;gsubfn&amp;#39; was built under R version 3.4.3## Loading required package: proto## Warning: package &amp;#39;proto&amp;#39; was built under R version 3.4.3## Loading required package: RSQLitelibrary(ggplot2)## Warning: package &amp;#39;ggplot2&amp;#39; was built under R version 3.4.3#extracting the data-------query&amp;lt;-&amp;quot;SELECT weightFROM Master&amp;quot;result&amp;lt;-sqldf(query)#visualize the data-------ggplot()+geom_histogram(data=result,aes(x=weight),color=&amp;quot;blue&amp;quot;,fill=&amp;quot;orange&amp;quot;,bins=50)+ggtitle(&amp;quot;Body-weight Distribution for Baseball Players&amp;quot;)## Warning: Removed 854 rows containing non-finite values (stat_bin).</description>
+    </item>
+    
+    <item>
+      <title>Scatter Plot</title>
+      <link>/post/scatter-plot/</link>
+      <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/scatter-plot/</guid>
+      <description>library(Lahman)## Warning: package &amp;#39;Lahman&amp;#39; was built under R version 3.4.3library(sqldf)## Warning: package &amp;#39;sqldf&amp;#39; was built under R version 3.4.3## Loading required package: gsubfn## Warning: package &amp;#39;gsubfn&amp;#39; was built under R version 3.4.3## Loading required package: proto## Warning: package &amp;#39;proto&amp;#39; was built under R version 3.4.3## Loading required package: RSQLitelibrary(ggplot2)## Warning: package &amp;#39;ggplot2&amp;#39; was built under R version 3.4.3query&amp;lt;-&amp;quot;SELECT playerID,sum(HR),sum(SO)FROM Batting GROUP BY playerIDHAVING sum(HR)&amp;gt;400&amp;quot;sqldf(query)## playerID sum(HR) sum(SO)## 1 aaronha01 755 1383## 2 bagweje01 449 1558## 3 bankser01 512 1236## 4 beltrad01 445 1584## 5 beltrca01 421 1693## 6 bondsba01 762 1539## 7 cabremi01 446 1516## 8 cansejo01 462 1942## 9 dawsoan01 438 1509## 10 delgaca01 473 1745## 11 dunnad01 462 2379## 12 evansda01 414 1410## 13 foxxji01 534 1311## 14 gehrilo01 493 790## 15 giambja01 440 1572## 16 gonzaju03 434 1273## 17 griffke02 630 1779## 18 guerrvl01 449 985## 19 jacksre01 563 2597## 20 jonesan01 434 1748## 21 jonesch06 468 1409## 22 killeha01 573 1699## 23 kingmda01 442 1816## 24 konerpa01 439 1391## 25 mantlmi01 536 1710## 26 matheed01 512 1487## 27 mayswi01 660 1526## 28 mccovwi01 521 1550## 29 mcgrifr01 493 1882## 30 mcgwima01 583 1596## 31 murraed02 504 1516## 32 musiast01 475 696## 33 ortizda01 541 1750## 34 ottme01 511 896## 35 palmera01 569 1348## 36 piazzmi01 427 1113## 37 pujolal01 591 1053## 38 ramirma02 555 1813## 39 ripkeca01 431 1305## 40 robinfr02 586 1532## 41 rodrial01 696 2287## 42 ruthba01 714 1330## 43 schmimi01 548 1883## 44 sheffga01 509 1171## 45 snidedu01 407 1237## 46 soriaal01 412 1803## 47 sosasa01 609 2306## 48 stargwi01 475 1936## 49 teixema01 409 1441## 50 thomafr04 521 1397## 51 thomeji01 612 2548## 52 willibi01 426 1046## 53 willite01 521 709## 54 winfida01 465 1686## 55 yastrca01 452 1393query&amp;lt;-&amp;quot;SELECT playerID,sum(HR) AS CareerHR,sum(SO) AS CareerSOFROM BattingGROUP BY playerIDHAVING sum(HR)&amp;gt;400&amp;quot;result&amp;lt;-sqldf(query)ggplot()+geom_point(data=result,aes(x=CareerSO,y=CareerHR),size=3)+ggtitle(&amp;quot;Career Strikeouts and Homeruns - The Best&amp;quot;)+xlab(&amp;quot;Career Strikeouts&amp;quot;)+ylab(&amp;quot;Career Homeruns&amp;quot;)code{white-space: pre;}pre:not([class]) {background-color: white;}if (window.</description>
+    </item>
+    
+    <item>
+      <title>Time Series</title>
+      <link>/post/time-series/</link>
+      <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/time-series/</guid>
+      <description>library(Lahman)## Warning: package &amp;#39;Lahman&amp;#39; was built under R version 3.4.3library(sqldf)## Warning: package &amp;#39;sqldf&amp;#39; was built under R version 3.4.3## Loading required package: gsubfn## Warning: package &amp;#39;gsubfn&amp;#39; was built under R version 3.4.3## Loading required package: proto## Warning: package &amp;#39;proto&amp;#39; was built under R version 3.4.3## Loading required package: RSQLitelibrary(ggplot2)## Warning: package &amp;#39;ggplot2&amp;#39; was built under R version 3.4.3query&amp;lt;-&amp;quot;SELECT yearID, HRFROM BattingWHERE playerID=&amp;#39;ruthba01&amp;#39;&amp;quot;result&amp;lt;-sqldf(query)ggplot()+geom_point(data=result,aes(x=yearID, y=HR))+geom_line(data=result,aes(x=yearID, y=HR))+ggtitle(&amp;quot;Ruth&amp;#39;s Homerun Totals Throughout the Year&amp;#39;s&amp;quot;)+xlab(&amp;quot;year&amp;quot;)+ylab(&amp;quot;homeruns&amp;quot;)</description>
+    </item>
+    
+  </channel>
+</rss>
